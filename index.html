@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        alert("Let's play a game of Rock, Paper, Scissors. You'll play 5 rounds and for each one you will know how you scored. The final result will be determined based on those 5 rounds. Enjoy!");
+        
+        //variables for random computer play
+        
+        function computerPlay() {
+            const rockPaperScissors = ['rock', 'paper', 'scissors'];
+            const randomNumber = Math.floor(Math.random() * rockPaperScissors.length);
+            return rockPaperScissors[randomNumber];
+        }
+        
+        const computerSelection = computerPlay();
+
+        function playerPlay() {
+            playerInput = prompt("Rock, paper or scissors?").toLowerCase();
+            if ((playerInput != 'rock') && (playerInput != 'paper') && (playerInput != 'scissors')) {
+                
+                alert("Please input a valid option.");
+                playerPlay();
+            }
+            return playerInput;
+        }
+
+        const playerSelection = playerPlay();
+
+        function game() {
+           
+            
+            function round(playerSelection, computerSelection) {
+                
+
+                if (playerSelection == computerSelection) {
+                    
+                    alert("It's a draw!");
+                    
+        
+                
+                } else if (((playerSelection == 'rock') && (computerSelection == 'scissors')) || ((playerSelection == 'paper') && (computerSelection == 'rock')) || ((playerSelection == 'scissors') && (computerSelection == 'paper'))) {
+                    
+                    alert(`You win! ${playerSelection} beats ${computerSelection}!`);
+                   
+
+
+                } else {
+                    
+                    alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
+                    
+                    
+                }
+                
+                
+            }
+            
+                round(playerSelection,computerSelection);
+            
+        }    
+        
+       game();
+       
+            
+        
+            
+
+        
+
+        
+        
+
+
+
+
+    </script>
+</body>
+
+</html>
