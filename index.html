@@ -15,18 +15,17 @@
     let playerScore = 0;
     
     alert("Let's play the game of Rock, Paper and Scissors. You have to type your play and for 5 times you will go against the computer. In the end, you will be presented with the result. Good luck!");
-    
-    
+
+   function game()  {
+    let computerPlay = getComputerPlay();
     function getComputerPlay() {
         const options = ['rock', 'paper', 'scissors'];
         const randomNumber = Math.floor(Math.random() * 3);
         let computerInput = options[randomNumber];
         return computerInput;
     }
-    let computerPlay = getComputerPlay();
     
-   
-   
+   let playerPlay = getPlayerPlay();
    function getPlayerPlay() {
         let r = 'rock';
         let p = 'paper';
@@ -44,11 +43,11 @@
             
             return playerInput;
         }
+    }
+
+    getPlayerPlay() = playerPlay;
+    getComputerPlay() = computerPlay;
         
-   } 
-   let playerPlay = getPlayerPlay();
-   
-    if ((computerScore < 5) || (playerScore < 5)) {
             
             function round() {
 
@@ -78,29 +77,9 @@
                     break;
                 }
             }
-        
-        } else if (computerScore > playerScore) {
-            alert(`You lost the game. Better luck next time. Your score: ${playerScore} The computer's score ${computerScore}`);
-        } else if (computerScore < playerScore) {
-            alert(`You won the game!!! Your score: ${playerScore} The computer's score ${computerScore}`);
-        } else {
-            alert(`It's a tie! Next time you win. Your score: ${playerScore} The computer's score ${computerScore}`);
-        }
-
-   
-   
-
-
-
-   
-   
-   
-
- 
-  
-    
-
-    </script>
+    }
+    game();
+  </script>
 </body>
 
 </html>
