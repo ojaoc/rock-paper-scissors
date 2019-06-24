@@ -10,76 +10,95 @@
 
 <body>
     <script>
+    
+    let computerScore = 0;
+    let playerScore = 0;
+    
+    alert("Let's play the game of Rock, Paper and Scissors. You have to type your play and for 5 times you will go against the computer. In the end, you will be presented with the result. Good luck!");
+    
+    
+    function getComputerPlay() {
+        const options = ['rock', 'paper', 'scissors'];
+        const randomNumber = Math.floor(Math.random() * 3);
+        let computerInput = options[randomNumber];
+        return computerInput;
+    }
+    let computerPlay = getComputerPlay();
+    
+   
+   
+   function getPlayerPlay() {
+        let r = 'rock';
+        let p = 'paper';
+        let s = 'scissors';
+        let playerInput;
+        playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
         
-        alert("Let's play a game of Rock, Paper, Scissors. You'll play 5 rounds and for each one you will know how you scored. The final result will be determined based on those 5 rounds. Enjoy!");
-        
-        //variables for random computer play
-        
-        function computerPlay() {
-            const rockPaperScissors = ['rock', 'paper', 'scissors'];
-            const randomNumber = Math.floor(Math.random() * rockPaperScissors.length);
-            return rockPaperScissors[randomNumber];
-        }
-        
-        const computerSelection = computerPlay();
+        if ((playerInput !== r) && (playerInput !== p) && (playerInput !== s)) {
+            
+            alert('Please insert a valid option.')
+            getComputerPlay();
+            return getPlayerPlay();
 
-        function playerPlay() {
-            playerInput = prompt("Rock, paper or scissors?").toLowerCase();
-            if ((playerInput != 'rock') && (playerInput != 'paper') && (playerInput != 'scissors')) {
-                
-                alert("Please input a valid option.");
-                playerPlay();
-            }
+        } else {
+            
             return playerInput;
         }
-
-        const playerSelection = playerPlay();
-
-        function game() {
-           
-            
-            function round(playerSelection, computerSelection) {
-                
-
-                if (playerSelection == computerSelection) {
-                    
-                    alert("It's a draw!");
-                    
         
-                
-                } else if (((playerSelection == 'rock') && (computerSelection == 'scissors')) || ((playerSelection == 'paper') && (computerSelection == 'rock')) || ((playerSelection == 'scissors') && (computerSelection == 'paper'))) {
-                    
-                    alert(`You win! ${playerSelection} beats ${computerSelection}!`);
-                   
+   } 
+   let playerPlay = getPlayerPlay();
+   
+    if ((computerScore < 5) || (playerScore < 5)) {
+            
+            function round() {
 
+                switch (computerPlay+playerPlay) {
+                    
+                    case 'rockscissors':
+                    case 'paperrock':
+                    case 'scissorspaper':
+                    alert(`You lose. ${computerPlay} beats ${playerPlay}...`);
+                    computerScore++;
+                    return; 
+                    break;
 
-                } else {
-                    
-                    alert(`You lose! ${computerSelection} beats ${playerSelection}!`);
-                    
-                    
+                    case 'scissorsrock':
+                    case 'rockpaper':
+                    case 'paperscissors':
+                    alert(`You win! ${playerPlay} beats ${computerPlay}!`);
+                    playerScore++;
+                    return; 
+                    break;
+
+                    default:
+                    alert(`It's a tie...`);
+                    computerScore++;
+                    playerScore++;
+                    return;
+                    break;
                 }
-                
-                
             }
-            
-                round(playerSelection,computerSelection);
-            
-        }    
         
-       game();
-       
-            
-        
-            
+        } else if (computerScore > playerScore) {
+            alert(`You lost the game. Better luck next time. Your score: ${playerScore} The computer's score ${computerScore}`);
+        } else if (computerScore < playerScore) {
+            alert(`You won the game!!! Your score: ${playerScore} The computer's score ${computerScore}`);
+        } else {
+            alert(`It's a tie! Next time you win. Your score: ${playerScore} The computer's score ${computerScore}`);
+        }
 
-        
-
-        
-        
+   
+   
 
 
 
+   
+   
+   
+
+ 
+  
+    
 
     </script>
 </body>
