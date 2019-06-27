@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RockPaperScissors</title>
+    <title>RockPaperScissors by ojaoc</title>
 </head>
 
 <body>
@@ -18,9 +18,33 @@
     let p = 'paper';
     let s = 'scissors';
 
-    
-    
     alert("Let's play the game of Rock, Paper and Scissors. You have to type your play and for 5 times you will go against the computer. In the end, you will be presented with the result. Good luck!");
+
+    function finalScore() {
+
+        function close_window() {
+                if (confirm("Close Window?")) {
+                close();
+                }
+            }
+
+                if ((playerScore==5) && (computerScore<playerScore)) {
+                            alert(`You won the match! Your score: ${playerScore}  Computer Score: ${computerScore}`)
+                            return close_window();
+
+                        } else if ((computerScore==5) && (computerScore>playerScore)) {
+                            alert(`You lost the match... Your score: ${playerScore}  Computer Score: ${computerScore}`)
+                            return close_window();
+                        
+                        } else if ((computerScore==5) && (playerScore==5)) {
+                            alert(`It's a tie! Your score: ${playerScore}  Computer Score: ${computerScore}`)
+                            return close_window();
+
+                        } else {
+                            return game();
+                        }
+                    }
+                
 
 function game() {
 
@@ -52,32 +76,34 @@ function game() {
     
         function round() {
 
+            
                 switch (computerPlay+playerPlay) {
                     
                     case 'rockscissors':
                     case 'paperrock':
                     case 'scissorspaper':
-                    alert(`You lose. ${computerPlay} beats ${playerPlay}...`);
                     computerScore++;
-                    return; 
+                    alert(`You lose. ${computerPlay} beats ${playerPlay}... Your score: ${playerScore}  Computer Score: ${computerScore}`);
+                    return finalScore(); 
                     break;
 
                     case 'scissorsrock':
                     case 'rockpaper':
                     case 'paperscissors':
-                    alert(`You win! ${playerPlay} beats ${computerPlay}!`);
                     playerScore++;
-                    return; 
+                    alert(`You win! ${playerPlay} beats ${computerPlay}! Your score: ${playerScore}  Computer Score: ${computerScore}`);
+                    return finalScore(); 
                     break;
 
                     default:
-                    alert(`It's a tie...`);
                     computerScore++;
                     playerScore++;
-                    return;
+                    alert(`It's a tie... Your score: ${playerScore}  Computer Score: ${computerScore}`);
+                    return finalScore();
                     break;
-                }
-            }
+                } 
+        
+        }
 
             round();
 }
