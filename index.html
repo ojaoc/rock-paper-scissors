@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>RockPaperScissors</title>
 </head>
 
 <body>
@@ -13,25 +13,26 @@
     
     let computerScore = 0;
     let playerScore = 0;
+    const options = ['rock', 'paper', 'scissors'];
+    let r = 'rock';
+    let p = 'paper';
+    let s = 'scissors';
+
+    
     
     alert("Let's play the game of Rock, Paper and Scissors. You have to type your play and for 5 times you will go against the computer. In the end, you will be presented with the result. Good luck!");
 
-   function game()  {
-    let computerPlay = getComputerPlay();
+function game() {
+
     function getComputerPlay() {
-        const options = ['rock', 'paper', 'scissors'];
         const randomNumber = Math.floor(Math.random() * 3);
         let computerInput = options[randomNumber];
         return computerInput;
     }
-    
-   let playerPlay = getPlayerPlay();
+
    function getPlayerPlay() {
-        let r = 'rock';
-        let p = 'paper';
-        let s = 'scissors';
-        let playerInput;
-        playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
+        
+        let playerInput = prompt("Rock, Paper or Scissors?").toLowerCase();
         
         if ((playerInput !== r) && (playerInput !== p) && (playerInput !== s)) {
             
@@ -45,11 +46,11 @@
         }
     }
 
-    getPlayerPlay() = playerPlay;
-    getComputerPlay() = computerPlay;
-        
-            
-            function round() {
+    let computerPlay = getComputerPlay();
+    let playerPlay = getPlayerPlay();
+
+    
+        function round() {
 
                 switch (computerPlay+playerPlay) {
                     
@@ -77,8 +78,12 @@
                     break;
                 }
             }
-    }
-    game();
+
+            round();
+}
+        
+        game();
+ 
   </script>
 </body>
 
