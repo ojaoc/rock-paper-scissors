@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo|Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #14A098;
+}
+
+header {
+    background-color: white;
+}
+
+header > h1 {
+    color: #CB2D6F;
+    font-family: 'Archivo', sans-serif;
+    text-align: center;
+    padding: 15px;
+}
+
+.score-board {
+    font-family: 'Roboto', sans-serif;
+    margin: 40px auto;
+    padding: 15px 20px;
+    width: 200px;
+    color: white;
+    background-color: #0F292F;
+    border: 3px solid white;
+    border-radius: 5px;
+    font-size: 38px;
+    text-align: center;
+    position: relative;
+}
+
+.badge {
+    background-color: #CB2D6F;
+    color: white;
+    font-size: 16px;
+    padding: 2px 10px;
+    border: 2px solid white;     
+
+}
+
+#user-label {
+    position: absolute;
+    top: 25px;
+    left: -30px;
+    border-radius: 5px;
+}
+
+#cpu-label {
+    position: absolute;
+    top: 25px;
+    right: -28px;
+    border-radius: 5px;
+}
+
+.result {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: #0F292F;
+    font-size: 42px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 50px 0 0 0;
+    
+}
+
+.choices {
+    text-align: center;
+    background-color: white;
+    padding: 20px 0 0 0;
+}
+
+.choice {
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.choice > img {
+    height: 300px;
+    width: auto;
+    margin-bottom: -4px;
+}
+
+#action-message {
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    color: white;
+    background-color: #CB2D6F;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+    
+}
