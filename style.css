@@ -80,6 +80,7 @@ header > h1 {
     cursor: pointer;
     display: inline-block;
     margin: 0 30px;
+    position: relative;
 }
 
 .choice > img {
