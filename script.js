@@ -1,5 +1,6 @@
-const userScore = 0;
-const cpuScore = 0;
+const playerScore = 0;
+const computerScore = 0;
+const options = ['rock', 'paper', 'scissors'];
 
 const userScore_span = document.getElementById('user-score');
 const cpuScore_span = document.getElementById('cpu-score');
@@ -69,16 +70,50 @@ scissors_div.onmouseout = () => {
     scissorsBack_img.style.visibility = 'hidden';
 };
 
+function game(option) {
+
+    function getComputerPlay() {
+        const randomNumber = Math.floor(Math.random() * 3);
+        let computerInput = options[randomNumber];
+        return computerInput;
+    }
+
+    let computerPlay = getComputerPlay();
+    let playerPlay = option;
+
+    
+        function round(computerPlay,playerPlay) {
+
+            switch (computerPlay+playerPlay) {
+                    
+                    case 'rockscissors':
+                    case 'paperrock':
+                    case 'scissorspaper':
+                    return computerScore++; 
+                    break;
+
+                    case 'scissorsrock':
+                    case 'rockpaper':
+                    case 'paperscissors':
+                    return playerScore++;
+                    break;
+
+                    default:
+                    computerScore++;
+                    playerScore++;
+                    return;
+                    break;
+                } 
+        
+        }
+
+            round();
+}
+
 function main() {
-    rock_div.addEventListener('click', function() {
-    game('rock');
-    });
-    paper_div.addEventListener('click', function() {
-    game('paper');
-    });
-    scissors_div.addEventListener('click', function() {
-    game('scissors');
-    });
+    rock_div.addEventListener('click', game('rock'));
+    paper_div.addEventListener('click', game('paper'));
+    scissors_div.addEventListener('click', game('scissors'));
 }
 
 
