@@ -77,6 +77,7 @@ header > h1 {
 }
 
 .choice {
+    cursor: pointer;
     display: inline-block;
     margin: 0 30px;
 }
