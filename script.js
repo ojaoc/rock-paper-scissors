@@ -1,5 +1,5 @@
-const playerScore = 0;
-const computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 const options = ['rock', 'paper', 'scissors'];
 
 const userScore_span = document.getElementById('user-score');
@@ -21,6 +21,10 @@ let paperBack_img = document.createElement('img');
 paperBack_img.src = "./img/paper-back.png";
 let scissorsBack_img = document.createElement('img');
 scissorsBack_img.src = "./img/scissors-back.png";
+
+rock_div.addEventListener('click', function () {game('rock')});
+paper_div.addEventListener('click', function () {game('paper')});
+scissors_div.addEventListener('click', function () {game('scissors')});
 
 rockBack_img.style.visibility = 'hidden';
 paperBack_img.style.visibility = 'hidden';
@@ -81,40 +85,36 @@ function game(option) {
     let computerPlay = getComputerPlay();
     let playerPlay = option;
 
-    
-        function round(computerPlay,playerPlay) {
-
             switch (computerPlay+playerPlay) {
                     
                     case 'rockscissors':
                     case 'paperrock':
                     case 'scissorspaper':
-                    return computerScore++; 
+                    computerScore++;
+                    cpuScore_span.innerHTML = computerScore;
+                    result_div.textContent = 'You loose...';
+                    return;
                     break;
 
                     case 'scissorsrock':
                     case 'rockpaper':
                     case 'paperscissors':
-                    return playerScore++;
+                    playerScore++;
+                    userScore_span.innerHTML = playerScore;
+                    result_div.textContent = 'You win!';
+                    return;
                     break;
 
                     default:
-                    computerScore++;
-                    playerScore++;
+                    result_div.textContent = `It's a tie...`;
                     return;
                     break;
                 } 
-        
-        }
+    }
 
-            round();
-}
 
-function main() {
-    rock_div.addEventListener('click', game('rock'));
-    paper_div.addEventListener('click', game('paper'));
-    scissors_div.addEventListener('click', game('scissors'));
-}
+
+
 
 
 
