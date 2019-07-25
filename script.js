@@ -92,7 +92,7 @@ function game(option) {
                     case 'scissorspaper':
                     computerScore++;
                     cpuScore_span.innerHTML = computerScore;
-                    result_div.textContent = 'You loose...';
+                    result_div.textContent = `You loose... ${computerPlay} beats ${playerPlay} 💩`;
                     return;
                     break;
 
@@ -101,7 +101,7 @@ function game(option) {
                     case 'paperscissors':
                     playerScore++;
                     userScore_span.innerHTML = playerScore;
-                    result_div.textContent = 'You win!';
+                    result_div.textContent = `You win! ${playerPlay} beats ${computerPlay} 🔥`;
                     return;
                     break;
 
