@@ -1,6 +1,7 @@
 # Rock Paper Scissors
 
-Open-source Rock Paper Scissors game for the browser
+Open-source Rock Paper Scissors game for the browser.
+As you choose a play, you will go against a random, computer selected choice.
 
 ## Installation
 
